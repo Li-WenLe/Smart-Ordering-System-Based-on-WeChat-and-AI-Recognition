@@ -1,0 +1,97 @@
+<scroll-view scroll-y class="scroll-container">
+  <view class="order-container">
+    <!-- 地址信息 -->
+    <view class="address-delivery-info">
+      <text class="name-phone">{{addressInfo.name}} {{addressInfo.phone}}</text>
+      <text class="address">{{addressInfo.region}} {{addressInfo.detailAddress}}</text>
+    </view>
+
+    <!-- 购物明细 -->
+    <view class="order-details">
+      <view class="section-title">购物明细</view>
+      <block wx:for="{{orderList}}" wx:key="index">
+        <view class="goods-item">
+          <image src="{{item.isSetMeal ? item.cover : item.image}}" class="goods-image"></image>
+          <view class="goods-info">
+            <text class="goods-name">{{item.name}}</text>
+            <view class="goods-price">
+              <text>¥{{item.price}}</text>
+              <text class="goods-count">x{{item.number}}</text>
+            </view>
+          </view>
+        </view>
+      </block>
+    </view>
+
+    <!-- 优惠券选择 -->
+    <view class="voucher-select" bindtap="openVoucherSelect">
+      <text>优惠券</text>
+      <view class="voucher-value">
+        <text wx:if="{{selectedVoucher}}">{{selectedVoucher.title}}（-¥{{selectedVoucher.amount}}）</text>
+        <text wx:else>选择优惠券</text>
+        <text class="iconfont icon-right"></text>
+      </view>
+    </view>
+
+    <!-- 费用合计 -->
+    <view class="cost-summary">
+      <view class="cost-item">
+        <text>商品总额</text>
+        <text>¥{{sum}}</text>
+      </view>
+      <view class="cost-item" wx:if="{{selectedVoucher}}">
+        <text>优惠券抵扣</text>
+        <text style="color:#ff5f6d">-¥{{selectedVoucher.amount}}</text>
+      </view>
+      <view class="cost-item">
+        <text>打包费</text>
+        <text>¥1</text>
+      </view>
+      <view class="cost-item">
+        <text>配送费</text>
+        <text>¥3</text>
+      </view>
+      <view class="total-item">
+      <text>合计金额（演示）</text>
+      <text class="total-amount">¥{{finalAmount}}</text>
+      </view>
+    </view>
+  </view>
+</scroll-view>
+
+<!-- 底部结算栏（演示） -->
+<view class="footer">
+  <view class="price-display">
+  <text>¥{{finalAmount}}</text>
+  <text wx:if="{{selectedVoucher}}" class="original-price">¥{{sum+4}}</text>
+  </view>
+  <button class="pay-btn" bindtap="addOrderandpay" style="margin-right: 50rpx;">去结算（演示）</button>
+</view>
+
+<!-- 优惠券选择弹窗 -->
+<view class="voucher-popup" wx:if="{{showVoucherPopup}}">
+  <view class="popup-mask"></view>
+  <view class="popup-content">
+    <view class="popup-header">
+      <text>选择优惠券</text>
+      <text class="close-btn" bindtap="cancelVoucher">×</text>
+    </view>
+    <scroll-view scroll-y class="voucher-list">
+      <block wx:for="{{validVouchers}}" wx:key="id">
+        <view class="voucher-item {{selectedVoucher && selectedVoucher.id === item.id ? 'selected' : ''}}" 
+              bindtap="selectVoucher" data-voucher="{{item}}">
+          <view class="voucher-amount">¥{{item.amount}}</view>
+          <view class="voucher-info">
+            <text class="voucher-title">{{item.title}}</text>
+            <text class="voucher-expiry">有效期至：{{item.usedTime}}</text>
+          </view>
+          <radio checked="{{selectedVoucher && selectedVoucher.id === item.id}}"/>
+        </view>
+      </block>
+    </scroll-view>
+    <view class="popup-footer">
+      <button bindtap="cancelVoucher">取消</button>
+      <button class="confirm-btn" bindtap="pay">确认使用</button>
+    </view>
+  </view>
+</view>

@@ -1,0 +1,49 @@
+<view class="container">
+  <form bindsubmit="formSubmit">
+    <view class="title">用户注册</view>
+    <view class="subtitle">请输入您的个人信息</view>
+    <input
+    type="text"
+    class="content"
+    placeholder="请输入你的昵称"
+    value="{{name}}"
+    bindinput="bindNameInput"
+    />
+    <input
+    type="text"
+    class="content"
+    placeholder="请输入你的电话号码"
+    value="{{phone}}"
+    bindinput="bindPhoneInput"
+    />
+
+    <input 
+      type="text" 
+      name="name" 
+      class="content" 
+      placeholder="请输入用户名" 
+      value="{{username}}" 
+      bindinput="bindUsernameInput" 
+    />
+    <input 
+      type="text" 
+      name="plateNo" 
+      class="content" 
+      placeholder="请输入密码" 
+      value="{{password}}" 
+      bindinput="bindPasswordInput" 
+      password 
+    />
+    <input 
+      type="text" 
+      name="plateNo" 
+      class="content" 
+      placeholder="请再次输入密码" 
+      value="{{rerepassword}}" 
+      bindinput="bindRepasswordInput" 
+      password 
+    />
+    <button class="wehx-foot-btn" hover-class="wehx-button_hover" formType="submit">注册</button>
+    <button bindtap="turntologin">返回登录</button>
+  </form>
+</view>

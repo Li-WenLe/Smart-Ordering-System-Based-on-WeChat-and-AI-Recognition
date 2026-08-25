@@ -1,0 +1,95 @@
+<!-- 用户信息区域 -->
+<view wx:if="{{booleanlogin}}" class="user-info">
+  <image src="{{userAvatar}}" class="photo_image"></image>
+  <text class="username">{{name || username}}</text>
+  <view style="display: flex; flex-direction: column; align-items: center; " bindtap="turntochat" data-id="{{userId}}" >
+    <image src="/images/耳机-F.png" style="width: 60rpx; height:60rpx;"></image>
+    <text style="font-size: small;">联系客服</text>
+</view>
+</view>
+<view wx:else class="not-login">
+  <text>请登录</text>
+  <button class="login-btn" bindtap="turntologin">登录</button>
+  <text>请注册</text>
+  <button class="login-btn" bindtap="turntoregister">注册</button>
+  <text>微信登录</text>
+  <button class="login-btn" open-type="chooseAvatar" bindchooseavatar="wxLogin">微信登录</button>
+  <input type="nickname" style="border:3ch saddlebrown" bindblur="getNickname"/>
+</view>
+
+<!-- 功能区 -->
+<view class="function-area" wx:if="{{booleanlogin}}">
+  <button class="function-btn" bindtap="turntomyorder">历史清单</button>
+  <button class="function-btn" bindtap="turntomyaddress" data-id="{{userId}}">地址管理</button>
+  <button class="function-btn" bindtap="turntousertaste" data-id="{{userId}}">口味偏好</button>
+  <button class="function-btn" bindtap="turntovoucher" data-id="{{userId}}">优惠券秒杀</button>
+  <button class="function-btn" bindtap="turntomyvoucher" data-id="{{userId}}">优惠券管理</button>
+  <button wx:if="{{booleanlogin}}" class="function-btn logout-btn" bindtap="logout">退出登录</button>
+</view>
+
+<!-- 订单历史 -->
+<view wx:if="{{booleanlogin}}" class="order-history">
+  <view class="section">
+    <view class="section-options">
+      <text class="option {{currentOrderType === 'history' ? 'active' : ''}}" 
+            data-type="history" 
+            bindtap="switchOrderType">历史订单</text>
+      <text class="option {{currentOrderType === 'recent' ? 'active' : ''}}" 
+            data-type="recent" 
+            bindtap="switchOrderType">最近订单</text>
+    </view>
+  </view>
+
+  <!-- 订单列表 - 动态绑定数据源 -->
+  <view class="order-list">
+    <block wx:for="{{currentOrderType === 'recent' ? recentOrderList : historyOrderList}}" 
+           wx:key="orderId">
+      <view class="order-item">
+        <view class="order-header">
+                    <text class="order-date">订单号: {{item.orderId}}</text>
+                    <text class="order-status" wx:if="{{item.status==0}}">已完成</text>
+                    <text wx:if="{{item.status==1}}" style="color: brown;">待确认（演示）</text>
+                    <text wx:if="{{item.status==2}}" style="color: burlywood;">待接单</text>
+                    <text wx:if="{{item.status==3}}" style="color: cornflowerblue;">超时未确认</text>
+                    <text wx:if="{{item.status==4}}" style="color: darkblue;">待送达</text>
+                </view>
+        
+        <!-- 商品列表 -->
+        <view class="order-products">
+          <block wx:for="{{item.items}}" wx:key="dishId">
+            <view class="product-item">
+              <image src="{{item.image}}" class="product-image"></image>
+              <view class="product-info">
+                <text class="product-name">{{item.dishname}}</text>
+                <view class="product-meta">
+                  <text class="product-price">￥{{item.acount}}</text>
+                  <text class="product-quantity">x{{item.number}}</text>
+                </view>
+              </view>
+            </view>
+          </block>
+        </view>
+        
+        <view class="order-footer">
+          <text class="order-total">共{{item.items.length}}件商品 合计: ￥{{item.totalPrice}}</text>
+          <button 
+              wx:if="{{item.status==1}}" 
+              class="reorder-btn" 
+              data-order-id="{{item.orderId}}"
+              data-total-price="{{item.totalPrice}}"
+              bindtap="repay"
+            >去结算（演示）</button>
+          <button wx:else class="reorder-btn"  bindtap="reorder" data-id="{{item.orderId}}">再来一单</button>
+        </view>
+      </view>
+    </block>
+    
+    <!-- 空状态提示 -->
+    <view wx:if="{{currentOrderType === 'recent' && recentOrderList.length === 0}}" class="empty-tip">
+      <text>暂无最近订单~</text>
+    </view>
+    <view wx:if="{{currentOrderType === 'history' && historyOrderList.length === 0}}" class="empty-tip">
+      <text>暂无历史订单~</text>
+    </view>
+  </view>
+</view>

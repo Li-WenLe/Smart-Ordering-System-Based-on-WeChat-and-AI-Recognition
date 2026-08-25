@@ -1,0 +1,43 @@
+.order-image{
+  width: 150rpx;
+  height: 150rpx;
+  margin: 10rpx 20rpx;
+}
+.box{
+  border: 3rpx solid rgb(228, 223, 223);
+  display: flex;
+  flex-direction: row;
+  margin: 10rpx 10rpx;
+  border-radius: 25rpx;
+}
+/* 底部tabbar*/
+.footer{
+  position: fixed;
+  bottom: 10rpx;
+  height: 100rpx;
+  width: 100%;
+  background-color: rgba(206, 24, 0, 0.192);
+  display: flex;
+  flex-direction: row;
+  justify-content: space-between;
+  align-items: center;
+}
+.total-price{
+  margin-left: 100rpx;
+  padding: 28rpx 60rpx;
+  color:red;
+  font-size: 35rpx;
+}
+.total{
+  background-color: red;
+  padding:28rpx 60rpx ;
+  font-size: 35rpx;
+  color: aliceblue;
+}
+.note{
+  margin: 10rpx 10rpx;
+  padding: 20rpx 20rpx;
+  border: 3rpx solid #eeeeee;
+  text-align: center;
+  font-size: 38rpx;
+}

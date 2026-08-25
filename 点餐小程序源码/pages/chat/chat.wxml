@@ -1,0 +1,38 @@
+<view class="chat-container">
+  <!-- 连接状态显示 -->
+  <view class="status">
+    连接状态：{{socketStatus === 'connected' ? '已连接' : 
+              socketStatus === 'connecting' ? '连接中...' : 
+              socketStatus === 'error' ? '连接错误' : '已断开'}}
+  </view>
+  
+  <!-- 消息列表 -->
+  <scroll-view class="message-container" scroll-y>
+    <block wx:for="{{messages}}" wx:key="timestamp">
+      <!-- 自己发送的消息显示在右侧(绿色气泡) -->
+      <view class="message {{item.isSelf ? 'self-message' : 'other-message'}}">
+        <view wx:if="{{!item.isSelf}}" class="sender-name">
+          {{item.sender}}
+        </view>
+        <view class="message-content">
+          {{item.content}}
+        </view>
+        <view class="message-time">
+          {{formatTime(item.timestamp)}}
+        </view>
+      </view>
+    </block>
+  </scroll-view>
+  
+  <!-- 输入区域 -->
+  <view class="input-area">
+    <input 
+      value="{{inputValue}}" 
+      bindinput="onInputChange" 
+      placeholder="输入消息..." 
+      confirm-type="send"
+      bindconfirm="onSendButtonTap"
+    />
+    <button bindtap="onSendButtonTap">发送</button>
+  </view>
+</view>

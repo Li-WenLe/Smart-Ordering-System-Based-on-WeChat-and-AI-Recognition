@@ -1,0 +1,103 @@
+/**index.wxss**/
+page {
+  height: 100vh;
+  display: flex;
+  flex-direction: column;
+}
+/*搜索样式*/
+.search-box{
+  display: flex;
+  flex-direction: row;
+  border: 5rpx solid #f7f7f7;
+  /*margin: 0 20rpx;*/
+  height: 80rpx;
+  justify-content: space-between;
+  /*padding: 0 20rpx;*/
+  align-items: center;
+  background-color: #FF6146;
+}
+.search-image{
+  width: 50rpx;
+  height: 50rpx;
+  margin-right: 25rpx;
+}
+.input-cell{
+  padding: 20rpx 20rpx;
+  width: 600rpx;
+  background-color: #ffff;
+}
+/*轮播图样式*/
+.swiper-image{
+  width: 100%;
+  height: 100%;
+  border-radius: 3%;
+}
+.swiper-type{
+  padding: 20rpx 20rpx;
+}
+.image-show{
+  width: 300rpx;
+  height: 100rpx;
+  margin: 10rpx 30rpx;
+  display: flex;
+  flex-direction: row;
+}
+.image{
+  margin: 20rpx 20rpx;
+  border: 3rpx solid black;
+  border-radius: 20rpx;
+  flex-direction: row;    /* 横向排列 */
+  flex-wrap: wrap;  
+  display: flex;
+}
+.goods-box{
+  display: flex;
+  flex-direction: row;
+  padding: 0 20rpx;
+  justify-content:space-between;
+  flex-wrap: wrap;
+}
+.goods-image{
+  width: 340rpx;
+  height: 250rpx;
+  border-radius: 20rpx;
+  justify-content: space-between;
+}
+.goods-bootom{
+  display: flex;
+  flex-direction: row;
+  justify-content:space-between;
+  margin-bottom: 80rpx;
+}
+.show-image{
+  width: 150rpx;
+  height: 150rpx;
+}
+.image-container{
+  display: flex;
+  flex-direction: column;  /* 将图片和文字垂直排列 */
+  align-items: center;     /* 将图片和文字水平居中对齐 */
+  margin: 20rpx 10rpx;
+}
+.image {
+  display: flex;
+  flex-wrap: wrap;
+  padding: 10px;
+}
+
+.image-container {
+  width: 70px;
+  text-align: center;
+}
+
+.show-image {
+  width: 40px;
+  height: 40px;
+  border-radius: 8px;
+}
+
+.type-text {
+  display: block;
+  margin-top: 5px;
+  font-size: 14px;
+}

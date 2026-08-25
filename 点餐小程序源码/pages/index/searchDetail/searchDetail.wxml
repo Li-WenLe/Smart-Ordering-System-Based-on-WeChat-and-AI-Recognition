@@ -1,0 +1,18 @@
+<view>
+  <view class="search-box">
+   <input bindinput="getvalue" type="text" placeholder="请输入商品关键词"class="input-cell"/>
+   <image src="/images/搜索.png"class="search-image" bindtap="searchTest"></image>
+  </view>
+</view>
+<block wx:for="{{searchgoodsList}}">
+  <view class="searchgoods-box" bindtap="toContentDetail" data-id="{{item.id}}">
+    <view>
+      <image src="{{item.image}}"class="goods-image"></image>
+    </view>
+      <view class="search-right">
+        <view style="font-size: 35rpx;">{{item.name}}</view>
+        <view style="color: rgba(0, 0, 0, 0.308);">库存:{{item.acount}}</view>
+      <view style="color: red;">价格:¥{{item.price}}</view>
+      </view>
+    </view>
+</block>

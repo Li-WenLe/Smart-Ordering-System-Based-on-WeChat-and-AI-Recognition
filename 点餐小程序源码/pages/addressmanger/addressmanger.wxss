@@ -1,0 +1,109 @@
+/* pages/address/address.wxss */
+.address-container {
+  padding: 20rpx;
+  background-color: #f5f5f5;
+  min-height: 100vh;
+}
+
+.address-list {
+  margin-bottom: 120rpx;
+}
+
+.address-item {
+  background-color: #fff;
+  border-radius: 12rpx;
+  padding: 25rpx;
+  margin-bottom: 20rpx;
+  box-shadow: 0 2rpx 10rpx rgba(0, 0, 0, 0.05);
+}
+
+.address-info {
+  margin-bottom: 20rpx;
+}
+
+.user-info {
+  display: flex;
+  align-items: center;
+  margin-bottom: 10rpx;
+}
+
+.name {
+  font-size: 32rpx;
+  font-weight: bold;
+  margin-right: 20rpx;
+}
+
+.gender {
+  font-size: 26rpx;
+  color: #666;
+  margin-right: 20rpx;
+}
+
+.phone {
+  font-size: 28rpx;
+  color: #333;
+}
+
+.address-detail {
+  font-size: 28rpx;
+  color: #333;
+  line-height: 1.5;
+}
+
+.address-actions {
+  display: flex;
+  justify-content: space-between;
+  align-items: center;
+  border-top: 1rpx solid #eee;
+  padding-top: 20rpx;
+}
+
+.default-checkbox {
+  font-size: 26rpx;
+  color: #666;
+}
+
+.action-buttons {
+  display: flex;
+}
+
+.edit-btn, .delete-btn {
+  font-size: 26rpx;
+  color: #333;
+  background: none;
+  border: none;
+  padding: 0;
+  margin-left: 30rpx;
+}
+
+.edit-btn::after, .delete-btn::after {
+  border: none;
+}
+
+.delete-btn {
+  color: #ff4d4f;
+}
+
+.add-address-container {
+  position: fixed;
+  bottom: 30rpx;
+  left: 20rpx;
+  right: 20rpx;
+}
+
+.add-address-btn {
+  background-color: #07c160;
+  color: #fff;
+  border-radius: 50rpx;
+  font-size: 32rpx;
+  height: 80rpx;
+  line-height: 80rpx;
+}
+.tag-badge {
+  display: inline-block;
+  padding: 4rpx 16rpx;
+  background-color: #FF914D;
+  color: white;
+  border-radius: 100rpx;
+  font-size: 24rpx; /* 可选：调整字体大小 */
+}

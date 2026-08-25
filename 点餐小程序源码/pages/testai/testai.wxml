@@ -1,0 +1,5 @@
+<!-- <view class="container">
+  <input type="text" bindinput="handleInputChange" placeholder="请输入问题" />
+  <button bindtap="sendRequestToDoubao">发送请求</button>
+  <view>{{responseText}}</view>
+</view> -->

@@ -1,0 +1,67 @@
+{
+  "pages": [
+    "pages/index/index",
+    "pages/type/type",
+    "pages/cart/cart",
+    "pages/me/me",
+    "pages/index/bannerDetail/bannerDetail",
+    "pages/index/contentDetail/contentDetail",
+    "pages/index/typeDetail/typeDetail",
+    "pages/index/searchDetail/searchDetail",
+    "pages/order/order",
+    "pages/reorder/reorder",
+    "pages/me/myorder/myorder",
+    "pages/login/login",
+    "pages/regist/regist",
+    "pages/chatAI/chatAI",
+    "pages/address/address",
+    "pages/addressmanger/addressmanger",
+    "pages/address/edit",
+    "pages/myvoucher/myvoucher",
+    "pages/voucher/voucher",
+    "pages/chat/chat",
+    "pages/dishtop/dishtop",
+    "pages/photo/photo",
+    "pages/testai/testai",
+    "pages/usertaste/usertaste"
+  ],
+  "window": {
+    "navigationBarTextStyle": "white",
+    "navigationStyle": "default",
+    "navigationBarBackgroundColor": "#FF6146",
+    "navigationBarTitleText": "智乐速达点餐小程序演示"
+  },
+  "componentFramework": "glass-easel",
+  "sitemapLocation": "sitemap.json",
+  "lazyCodeLoading": "requiredComponents",
+  "tabBar": {
+    "selectedColor": "FF0000",
+    "borderStyle": "white",
+    "list": [
+      {
+        "pagePath": "pages/index/index",
+        "text": "首页",
+        "iconPath": "/images/home.png",
+        "selectedIconPath": "/images/home_yes.png"
+      },
+      {
+        "pagePath": "pages/type/type",
+        "text": "分类",
+        "iconPath": "/images/type.png",
+        "selectedIconPath": "/images/type_yes.png"
+      },
+      {
+        "pagePath": "pages/cart/cart",
+        "text": "清单",
+        "iconPath": "/images/cart.png",
+        "selectedIconPath": "/images/cart_yes.png"
+      },
+      {
+        "pagePath": "pages/me/me",
+        "text": "个人中心",
+        "iconPath": "/images/me.png",
+        "selectedIconPath": "/images/me_yes.png"
+      }
+    ]
+  }
+}

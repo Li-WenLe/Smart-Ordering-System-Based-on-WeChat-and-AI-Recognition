@@ -1,0 +1,26 @@
+<image src="{{contentList.image}}" style="margin-left: 50rpx; margin-top:20rpx;border-radius: 20rpx; width: 650rpx; height: 400rpx;"></image>
+<view class="mode">
+ <view style="color: red;font-size: 35rpx;">价值：¥{{contentList.price}}</view>
+ <view style="color: rgba(24, 22, 22, 0.555);">库存：{{contentList.inventory}}</view>
+</view>
+<view class="title">
+  <view style="font-size: large;font-weight: 600; margin-left: 40rpx;">{{contentList.name}}</view>
+  <button open-type="share" class="button">分享</button>
+</view>
+<view>
+  <view style="margin:20rpx 40rpx;font-size: 40rpx;font-weight: 600;border-bottom: 5rpx solid gainsboro;">商品详情：</view>
+  <view style="margin:0 45rpx; font-size: 32rpx;  line-height: 1.8;color: #333;text-align: justify; letter-spacing: 0.5rpx;">{{contentList.description}}</view> 
+</view>
+<!--<image src="{{contentList.images}}" style="margin-left: 50rpx; margin-top:20rpx;border-radius: 20rpx; width: 650rpx; height: 400rpx;"></image>-->
+
+<!--底部tabbar-->
+<view class="tabbar">
+<view class="cart-num">{{cartList.length}}</view>
+  <view bindtap="turntocart">
+  <image src="/images/cart_yes.png" class="cart-image"></image>
+  </view>
+  <view style="display: flex; flex-direction: row;">
+  <view class="add-cart" bindtap="addCart">加入清单（演示）</view>
+  </view>
+</view>
+<view style="height: 300rpx;"></view>

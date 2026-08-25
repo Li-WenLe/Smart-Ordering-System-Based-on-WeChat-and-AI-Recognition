@@ -1,0 +1,114 @@
+/* 菜单项样式 */
+.menu-warp {
+  height: 100%;
+}
+
+.menu-item {
+  padding: 30rpx 20rpx;
+  text-align: center;
+  font-size: 28rpx;
+  color: #333;
+  border-bottom: 1rpx solid #eee;
+}
+
+.menu-item.active {
+  background-color: #fff;
+  color: #07C160;
+  font-weight: bold;
+  border-left: 4rpx solid #07C160;
+}
+
+/* 订单项样式 */
+.order-item {
+  background: #fff;
+  margin-bottom: 20rpx;
+  border-radius: 12rpx;
+  padding: 20rpx;
+  box-shadow: 0 2rpx 10rpx rgba(0,0,0,0.05);
+}
+
+.order-header {
+  display: flex;
+  justify-content: space-between;
+  margin-bottom: 20rpx;
+}
+
+.order-id {
+  font-size: 26rpx;
+  color: #666;
+}
+
+.order-status {
+  font-size: 26rpx;
+  font-weight: bold;
+}
+
+/* 商品项样式 */
+.product-item {
+  display: flex;
+  margin-bottom: 20rpx;
+}
+
+.product-image {
+  width: 120rpx;
+  height: 120rpx;
+  border-radius: 8rpx;
+}
+
+.product-info {
+  flex: 1;
+  margin-left: 20rpx;
+}
+
+.product-name {
+  font-size: 28rpx;
+  color: #333;
+  margin-bottom: 10rpx;
+}
+
+.product-meta {
+  display: flex;
+  justify-content: space-between;
+}
+
+.product-price {
+  font-size: 26rpx;
+  color: #FF6146;
+}
+
+.product-quantity {
+  font-size: 26rpx;
+  color: #999;
+}
+
+/* 订单底部 */
+.order-footer {
+  display: flex;
+  justify-content: space-between;
+  align-items: center;
+  margin-top: 20rpx;
+  padding-top: 20rpx;
+  border-top: 1rpx dashed #eee;
+}
+
+.order-total {
+  font-size: 28rpx;
+  color: #333;
+}
+
+.reorder-btn {
+  font-size: 26rpx;
+  color: #07C160;
+  background: #fff;
+  border: 1rpx solid #07C160;
+  border-radius: 30rpx;
+  padding: 0 30rpx;
+}
+
+/* 空状态提示 */
+.empty-tip {
+  text-align: center;
+  padding: 100rpx 0;
+  color: #999;
+  font-size: 28rpx;
+}

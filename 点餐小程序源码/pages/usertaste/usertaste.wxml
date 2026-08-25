@@ -1,0 +1,20 @@
+<!-- pages/taste-select/taste-select.wxml -->
+<view class="container">
+  <view class="title">选择您的口味偏好</view>
+  
+  <!-- 口味标签区域 - 横向不规则排列 -->
+  <view class="tag-container">
+    <block wx:for="{{tasteList}}" wx:key="id">
+      <view 
+        class="tag {{item.selected ? 'active' : ''}}" 
+        bindtap="toggleTag" 
+        data-id="{{item.id}}"
+      >
+        {{item.name}}
+      </view>
+    </block>
+  </view>
+
+  <!-- 底部保存按钮 -->
+  <view class="btn-save" bindtap="saveSelection">保存选择</view>
+</view>

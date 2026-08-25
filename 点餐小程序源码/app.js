@@ -1,0 +1,39 @@
+// app.js
+App({
+  onLaunch(){
+    wx.cloud.init({
+      env:"lwl-9g1luuhfd710a364"
+    })
+     if(wx.getStorageSync('cartList')){
+       this.globalData.cartList=wx.getStorageSync('cartList')
+     }
+     if(wx.getStorageSync('sum')){
+      this.globalData.sum=wx.getStorageSync('sum')
+    }
+    if(wx.getStorageSync('orderList')){
+      this.globalData.sum=wx.getStorageSync('orderList')
+    }
+    if(wx.getStorageSync('loginuser')){
+      this.globalData.sum=wx.getStorageSync('loginuser')
+    }
+  },
+  globalData:{
+    //购物车列表
+    cartList:[],
+    //商品总价
+    sum:0,
+    //订单列表
+    orderList:[],
+    //从商品详情直接购买
+    reorderList:null,
+    //待支付订单列表
+    shownopayList:[],
+    //已支付订单列表
+    showpayedList:[],
+    //套餐列表
+    setmealList:[],
+    loginuser: null, // 存储登录用户信息
+    booleanlogin:false,
+    combinedVouchers: [] // 存储合并后的优惠券数据
+  }
+})

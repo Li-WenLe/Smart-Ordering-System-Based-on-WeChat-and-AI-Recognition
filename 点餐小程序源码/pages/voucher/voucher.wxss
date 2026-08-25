@@ -1,0 +1,63 @@
+.voucher-container {
+  padding: 20rpx;
+}
+
+.voucher-item {
+  display: flex;
+  align-items: center;
+  border: 1px solid #eee;
+  border-radius: 10rpx;
+  padding: 20rpx;
+  margin-bottom: 20rpx;
+}
+
+.voucher-item image {
+  width: 150rpx;
+  height: 150rpx;
+  margin-right: 20rpx;
+}
+
+.voucher-info {
+  flex: 1;
+}
+
+.voucher-title {
+  font-size: 32rpx;
+  font-weight: bold;
+}
+
+.voucher-ruler {
+  font-size: 24rpx;
+  color: #666;
+}
+
+.voucher-remain {
+  font-size: 24rpx;
+  color: red;
+}
+
+.voucher-used-time {
+  font-size: 24rpx;
+  color: #999;
+}
+
+.grab-button {
+  background-color: #07c160;
+  color: white;
+  border-radius: 10rpx;
+  padding: 10rpx 20rpx;
+  font-size: 28rpx;
+}
+
+.grab-button[disabled] {
+  background-color: #ccc;
+}
+.grab-button {
+  background-color: #ff4d4f;
+  color: white;
+}
+
+.disabled-button {
+  background-color: #d9d9d9 !important;
+  color: #999 !important;
+}

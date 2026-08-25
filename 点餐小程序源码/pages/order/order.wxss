@@ -1,0 +1,186 @@
+/* 基础样式 */
+.order-container {
+  padding: 20rpx;
+  padding-bottom: 120rpx;
+}
+
+.address-delivery-info {
+  padding: 20rpx;
+  background: #fff;
+  border-radius: 10rpx;
+  margin-bottom: 20rpx;
+}
+
+/* 商品列表 */
+.goods-item {
+  display: flex;
+  padding: 20rpx;
+  background: #fff;
+  margin-bottom: 10rpx;
+  border-radius: 10rpx;
+}
+.goods-image {
+  width: 160rpx;
+  height: 160rpx;
+  border-radius: 8rpx;
+}
+.goods-info {
+  flex: 1;
+  margin-left: 20rpx;
+  display: flex;
+  flex-direction: column;
+  justify-content: space-between;
+}
+.goods-price {
+  display: flex;
+  justify-content: space-between;
+}
+
+/* 优惠券选择 */
+.voucher-select {
+  display: flex;
+  justify-content: space-between;
+  padding: 20rpx;
+  background: #fff;
+  margin: 20rpx 0;
+  border-radius: 10rpx;
+}
+.voucher-value {
+  color: #ff5f6d;
+}
+
+/* 费用合计 */
+.cost-summary {
+  background: #fff;
+  padding: 20rpx;
+  border-radius: 10rpx;
+}
+.cost-item {
+  display: flex;
+  justify-content: space-between;
+  margin-bottom: 15rpx;
+}
+.total-item {
+  display: flex;
+  justify-content: space-between;
+  margin-top: 20rpx;
+  padding-top: 20rpx;
+  border-top: 1rpx solid #eee;
+  font-weight: bold;
+}
+.total-amount {
+  color: #ff5f6d;
+  font-size: 36rpx;
+}
+
+/* 底部支付栏 */
+.footer {
+  position: fixed;
+  bottom: 0;
+  left: 0;
+  right: 0;
+  height: 100rpx;
+  background: #fff;
+  display: flex;
+  justify-content: space-between;
+  align-items: center;
+  padding: 0 20rpx;
+  box-shadow: 0 -2rpx 10rpx rgba(0,0,0,0.1);
+}
+.price-display {
+  display: flex;
+  align-items: baseline;
+}
+.original-price {
+  text-decoration: line-through;
+  color: #999;
+  font-size: 24rpx;
+  margin-left: 10rpx;
+}
+.pay-btn {
+  background: linear-gradient(90deg, #ff5f6d, #ff9966);
+  color: #fff;
+  border-radius: 50rpx;
+  padding: 0 40rpx;
+}
+
+/* 优惠券弹窗 */
+.voucher-popup {
+  position: fixed;
+  top: 0;
+  left: 0;
+  right: 0;
+  bottom: 0;
+  z-index: 999;
+}
+.popup-mask {
+  position: absolute;
+  width: 100%;
+  height: 100%;
+  background: rgba(0,0,0,0.5);
+}
+.popup-content {
+  position: absolute;
+  bottom: 0;
+  left: 0;
+  right: 0;
+  background: #fff;
+  border-radius: 20rpx 20rpx 0 0;
+  max-height: 70vh;
+  display: flex;
+  flex-direction: column;
+}
+.popup-header {
+  padding: 30rpx;
+  text-align: center;
+  position: relative;
+  font-weight: bold;
+  border-bottom: 1rpx solid #eee;
+}
+.close-btn {
+  position: absolute;
+  right: 30rpx;
+  top: 30rpx;
+  font-size: 40rpx;
+}
+.voucher-list {
+  flex: 1;
+  padding: 20rpx;
+}
+.voucher-item {
+  display: flex;
+  align-items: center;
+  padding: 20rpx;
+  margin-bottom: 20rpx;
+  background: #f7f7f7;
+  border-radius: 10rpx;
+}
+.voucher-item.selected {
+  border: 1rpx solid #ff5f6d;
+}
+.voucher-amount {
+  color: #ff5f6d;
+  font-size: 36rpx;
+  font-weight: bold;
+  margin-right: 20rpx;
+}
+.voucher-info {
+  flex: 1;
+}
+.voucher-expiry {
+  font-size: 24rpx;
+  color: #999;
+}
+.popup-footer {
+  display: flex;
+  padding: 20rpx;
+  border-top: 1rpx solid #eee;
+}
+.popup-footer button {
+  flex: 1;
+  margin: 0 10rpx;
+}
+.confirm-btn {
+  background: linear-gradient(90deg, #ff5f6d, #ff9966);
+  color: #fff;
+}

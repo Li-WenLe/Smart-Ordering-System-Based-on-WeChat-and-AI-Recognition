@@ -1,0 +1,76 @@
+.cart-box{
+  display: flex;
+  flex-direction: row;
+  margin:0 20rpx;
+  align-items: center;
+}
+.choose-image{
+  width: 40rpx;
+  height: 40rpx;
+}
+.goods-image{
+  width: 150rpx;
+  height: 150rpx;
+  margin: 10rpx 20rpx;
+  border: 3rpx solid rgb(228, 223, 223);
+  border-radius: 20rpx;
+}
+.goods-right{
+  margin: 10rpx 0rpx;
+  display: flex;
+  border: 3rpx solid rgb(228, 223, 223);
+  border-radius:20rpx ;
+  flex-direction: column;
+  width: 500rpx;
+  height: 160rpx;
+}
+/* 底部tabbar*/
+.all-bottom-box{
+  position: fixed;
+  bottom: 0;
+  width: 100%;
+  background-color:rgba(206, 24, 0, 0.192);
+  display: flex;
+  flex-direction: row;
+  justify-content: space-between;
+  align-items: center;
+}
+.all-choose{
+  width: 80rpx;
+  height: 80rpx;
+  margin-left: 20rpx;
+}
+.total{
+  padding: 0 70rpx;
+  background-color:#ff6146 ;
+  color: #fff;
+  height: 100rpx;
+  line-height: 100rpx;
+}
+.total-price{
+  color: red;
+  height: 100rpx;
+  line-height:100rpx ;
+  padding: 0 70rpx;
+  font-size: 45rpx;
+}
+/* 购物车商品图片样式 */
+.goods-image {
+  width: 150rpx;
+  height: 150rpx;
+  border-radius: 10rpx;
+  margin: 20rpx;
+}
+
+/* 套餐包含菜品样式 */
+.meal-dishes {
+  margin: 10rpx 15rpx;
+  font-size: 24rpx;
+  color: #666;
+  display: flex;
+  flex-wrap: wrap;
+}
+
+.meal-dishes text {
+  margin-right: 10rpx;
+}

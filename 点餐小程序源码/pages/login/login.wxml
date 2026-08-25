@@ -1,0 +1,25 @@
+<view class="container">
+  <form bindsubmit="formSubmit">
+    <view class="title">欢迎登录</view>
+    <view class="subtitle">请输入您的用户名和密码</view>
+    <input 
+      type="text" 
+      name="name" 
+      class="content" 
+      placeholder="请输入用户名" 
+      value="{{username}}" 
+      bindinput="bindUsernameInput" 
+    />
+    <input 
+      type="text" 
+      name="plateNo" 
+      class="content" 
+      placeholder="请输入密码" 
+      value="{{password}}" 
+      bindinput="bindPasswordInput" 
+      password 
+    />
+    <button class="wehx-foot-btn" hover-class="wehx-button_hover" formType="submit">登录</button>
+    <button bind:tap="turntoregist">注册</button>
+  </form>
+</view>

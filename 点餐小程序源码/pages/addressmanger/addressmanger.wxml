@@ -1,0 +1,34 @@
+<view class="address-container">
+  <!-- 地址列表 -->
+  <block wx:for="{{addressList}}" wx:key="id">
+    <view class="address-item">
+      <view class="address-info">
+        <view class="user-info">
+          <text class="name">{{item.name}}</text>
+          <text class="phone">{{item.phone}}</text>
+          <view style="margin-left: 45rpx;">
+            <block>
+              <text wx:if="{{item.tag === 'home'}}" class="tag-badge">家</text>
+              <text wx:elif="{{item.tag === 'company'}}" class="tag-badge">公司</text>
+              <text wx:elif="{{item.tag === 'school'}}" class="tag-badge">学校</text>
+              <text wx:else class="tag-badge">未设置</text>
+            </block>
+          </view>
+        </view>
+        <view class="address-detail">{{item.region}}</view>
+      </view>
+      <view class="address-actions">
+        <checkbox class="default-checkbox" checked="{{false}}">设为默认地址</checkbox>
+        <view class="action-buttons">
+          <button class="edit-btn" bind:tap="editAddress"data-id="{{item.id}}">编辑</button>
+          <button class="delete-btn" bind:tap="deleteAddress">删除</button>
+        </view>
+      </view>
+    </view>
+  </block>
+  
+  <!-- 新增地址按钮 -->
+  <view class="add-address-container">
+    <button class="add-address-btn" bind:tap="addAddress">新增收货地址</button>
+  </view>
+</view>

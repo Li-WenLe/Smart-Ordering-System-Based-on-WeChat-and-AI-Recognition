@@ -1,0 +1,38 @@
+/* type.wxss */
+
+/* 整体容器样式，可调整边距、背景色等 */
+.type-wraper {
+  padding: 20rpx;
+  background-color: #f5f5f5;
+}
+
+/* 每个商品项的容器样式，设置间距、边框等 */
+.type-wraper view {
+  display: flex;
+  flex-direction: row;
+  align-items: center;
+  padding: 20rpx 0;
+  border-bottom: 1rpx solid #ccc;
+}
+
+/* 图片样式，设置大小、圆角等 */
+.type-wraper image {
+  width: 100rpx;
+  height: 100rpx;
+  border-radius: 10rpx;
+  margin-right: 20rpx;
+}
+
+/* 商品名称文本样式，设置字体大小、颜色等 */
+.type-wraper text:nth-of-type(1) {
+  font-size: 32rpx;
+  color: #333;
+  font-weight: bold;
+}
+
+/* 销量文本样式，设置字体大小、颜色等 */
+.type-wraper text:nth-of-type(2) {
+  font-size: 28rpx;
+  color: #999;
+  margin-left: auto;
+}

@@ -1,0 +1,97 @@
+<!-- pages/type/type.wxml -->
+<view class="type-box">
+  <!-- 左半部分 - 分类列表 -->
+  <scroll-view scroll-y="true" class="type-left">
+    <!-- 商品分类 -->
+    <block wx:for="{{typeList}}" wx:key="index">
+      <view 
+        bindtap="getTypeGoodsListTest" 
+        data-type="{{item.type}}" 
+        data-index="{{index}}" 
+        class="{{currentType==index? 'choose-type':''}}"
+      >
+        {{item.type}}
+      </view>
+    </block>
+    
+    <!-- 套餐分类 -->
+    <block wx:for="{{setMealList}}" wx:key="index">
+      <view 
+        bindtap="getSetMealGoodsListTest" 
+        data-type="{{item.name}}" 
+        data-index="{{index}}" 
+        class="{{currentType==index?'choose-type':''}}"
+      >
+        {{item.name}}
+      </view>
+    </block>
+  </scroll-view>
+
+  <!-- 右半部分 - 商品/套餐列表 -->
+  <scroll-view scroll-y="true" class="type-right">
+    <!-- 商品列表 -->
+    <block wx:for="{{goodsList}}" wx:key="index" wx:if="{{!boolSetMeal && item.status!=1}}">
+      <view class="good-box" bindtap="toGoodsDetail" data-id="{{item.id}}">
+        <image class="type-good-image" src="{{item.image}}"></image>
+        <view style="padding-left: 30rpx; margin: 0 20rpx">
+          <view class="type-good-title">{{item.name}}</view>
+          <view class="type-good-tage">库存：{{item.inventory}}</view>
+          <view style="display: flex; flex-direction: row;">
+            <view style="margin-right: 60rpx; color: red; font-size: 30rpx;">售价：¥{{item.price}}</view>
+          </view>
+        </view>
+      </view>
+    </block>
+    
+    <!-- 套餐列表 -->
+    <view wx:if="{{boolSetMeal}}" class="good-box" bindtap="toSetMealGoodsDetail" data-id="{{setMealGoodsList.id}}">
+      <image class="type-good-image" src="{{setMealGoodsList.cover}}"></image>
+      <view style="padding-left: 30rpx; margin: 0 20rpx">
+        <view class="type-good-title">{{setMealGoodsList.name}}</view>
+        <view class="type-good-tage">库存：{{item.acount}}</view>
+        <view style="display: flex; flex-direction: row;">
+          <view style="margin-right: 60rpx; color: red; font-size: 30rpx;">售价：¥{{setMealGoodsList.price}}</view>
+        </view>
+      </view>
+    </view>
+    <view style="height: 200rpx;"></view>
+  </scroll-view>
+
+  <!-- 套餐详情弹窗 -->
+  <view class="dialog-container" wx:if="{{visible}}">
+    <view class="dialog-mask" bindtap="onClose"></view>
+    <view class="dialog-content">
+      <view class="dialog-header">
+        <text class="dialog-title">{{setMeal.name}}</text>
+        <text style="font-size: small;">{{setMeal.description}}</text>
+        <view class="dialog-close" bindtap="onClose">×</view>
+      </view>
+      <scroll-view class="dialog-body" scroll-y>
+        <view class="meal-info">
+          <image class="meal-image" src="{{setMeal.cover}}" mode="aspectFill"></image>
+          <view class="meal-details">
+            <text class="meal-name">{{setMeal.name}}</text>
+            <text class="meal-price">¥{{setMeal.price}}</text>
+          </view>
+        </view>
+        
+        <view class="dishes-section">
+          <view class="section-title">包含菜品</view>
+          <block wx:for="{{setMealGoodsList}}" wx:key="id">
+            <view class="dish-item">
+              <image class="dish-image" src="{{item.cover}}" mode="aspectFill"></image>
+              <view class="dish-info">
+                <text class="dish-name">{{item.name}}</text>
+                <text class="dish-desc" wx:if="{{item.description}}">{{item.description}}</text>
+                <text class="dish-quantity">x{{item.acount}}</text>
+              </view>
+            </view>
+          </block>
+        </view>
+      </scroll-view>
+      <view class="dialog-footer">
+        <button class="confirm-btn" bindtap="onConfirm" data-id="{{setMeal.id}}">加入清单（演示）</button>
+      </view>
+    </view>
+  </view>
+</view>

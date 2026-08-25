@@ -1,0 +1,19 @@
+.goods-box{
+  display: flex;
+  flex-direction: row;
+  padding: 0 20rpx;
+  justify-content:space-between;
+  flex-wrap: wrap;
+}
+.goods-image{
+  width: 340rpx;
+  height: 250rpx;
+  border-radius: 20rpx;
+  justify-content: space-between;
+}
+.goods-bootom{
+  display: flex;
+  flex-direction: row;
+  justify-content:space-between;
+  margin-bottom: 80rpx;
+}

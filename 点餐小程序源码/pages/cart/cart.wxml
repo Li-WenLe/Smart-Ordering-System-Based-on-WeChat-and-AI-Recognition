@@ -1,0 +1,45 @@
+<block wx:for="{{cartList}}" wx:key="id">
+  <view class="cart-box" bindtap="allprice">
+    <image wx:if="{{item.choose==true}}" src="/images/选择.png" class="choose-image" bindtap="chooseturn" data-index="{{index}}"></image>
+    <image wx:if="{{item.choose==false}}" src="/images/未选择.png" class="choose-image" bindtap="chooseturn" data-index="{{index}}"></image>
+    <image src="{{item.isSetMeal ? item.cover : item.image}}" class="goods-image" bindtap="toContentDetail" data-id="{{item.id}}"></image>
+    
+    <view class="goods-right">
+      <view bindtap="toContentDetail" data-id="{{item.id}}" style="margin:15rpx 15rpx;">{{item.name}}</view>
+      <view style="display: flex;flex-direction: row;">
+        <view 
+            wx:if="{{!item.isSetMeal}}"
+            bindtap="toContentDetail" 
+            data-id="{{item.id}}" 
+            style="margin:15rpx 15rpx;color: rgba(255, 0, 0, 0.938);"
+          >
+            价值：¥{{item.price}}
+          </view>
+          <view 
+            wx:if="{{item.isSetMeal}}"
+            style="margin:15rpx 15rpx;color: rgba(255, 0, 0, 0.938);"
+          >
+            价值：¥{{item.price}}
+            <text>(套餐)</text>
+          </view>
+        
+        <view style="display: flex; flex-direction: row; position: absolute; margin-left: 300rpx;">
+          <image style="width: 50rpx; height: 50rpx;" src="/images/减号.png" bindtap="reduce" data-index="{{index}}"></image>
+          <view style="margin-left: 10rpx; margin-right: 10rpx;">{{item.number}}</view>
+          <image style="width: 50rpx; height: 50rpx; " src="/images/加号.png" bindtap="add" data-index="{{index}}"></image>
+        </view>
+      </view>
+    </view>
+  </view>
+</block>
+<view class="all-bottom-box">
+  <view bindtap="turn">
+  <image wx:if="{{chooseok}}" src="/images/选择.png" class="all-choose"></image>
+  <image wx:if="{{!chooseok}}" src="/images/未选择.png" class="all-choose"></image>
+  </view>
+  <view style="position: absolute; margin-left: 120rpx;color: red; font-size:35rpx;">全选</view>
+  <view style="display: flex;flex-direction: row;"  class="right-box">
+     <view class="total-price">¥{{sum}}</view>
+     <view class="total" bindtap="toOrder">清算</view>
+  </view>
+</view>

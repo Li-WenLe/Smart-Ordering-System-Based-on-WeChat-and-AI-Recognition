@@ -1,0 +1,10 @@
+<view class="type-wraper">
+<text>今日销量排行</text>
+  <block wx:for="{{ weekdishtopList}}">
+    <view>
+      <image src="{{item.image}}"></image>
+      <text>{{item.dishname}}</text>
+      <text>销量：{{item.totalSales}}</text>
+    </view>
+  </block>
+</view>

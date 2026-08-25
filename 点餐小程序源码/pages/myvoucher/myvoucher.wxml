@@ -1,0 +1,54 @@
+<!-- 优惠券列表 -->
+<view class="container">
+  <!-- 未过期优惠券 -->
+  <view class="section" wx:if="{{validVouchers.length > 0}}">
+    <view class="section-title">可用优惠券 ({{validVouchers.length}})</view>
+    <block wx:for="{{validVouchers}}" wx:key="id">
+      <view class="voucher-card">
+        <view class="voucher-left">
+          <text class="amount">{{item.amount}}元</text>
+          <text class="type">满减券</text>
+        </view>
+        <view class="voucher-right">
+          <view class="info-top">
+            <text class="name">{{item.title}}</text>
+            <text class="count">x{{item.acount}}张</text>
+          </view>
+          <text class="rules">{{item.ruler}}</text>
+          <text class="expiry">有效期至：{{item.usedTime}}</text>
+          <button class="use-btn">立即使用</button>
+        </view>
+        <image class="bg-image" src="{{item.cover}}" mode="aspectFill"></image>
+      </view>
+    </block>
+  </view>
+
+  <!-- 已过期优惠券 -->
+  <view class="section" wx:if="{{expiredVouchers.length > 0}}">
+    <view class="section-title">已过期 ({{expiredVouchers.length}})</view>
+    <block wx:for="{{expiredVouchers}}" wx:key="id">
+      <view class="voucher-card expired">
+        <view class="voucher-left">
+          <text class="amount">{{item.amount}}元</text>
+          <text class="type">无门槛券</text>
+        </view>
+        <view class="voucher-right">
+          <view class="info-top">
+            <text class="name">{{item.title}}</text>
+            <text class="count">x{{item.acount}}张</text>
+          </view>
+          <text class="rules">{{item.ruler}}</text>
+          <text class="expiry">已过期：{{item.usedTime}}</text>
+          <button class="use-btn" disabled>已过期</button>
+        </view>
+        <image class="bg-image" src="{{item.cover}}" mode="aspectFill"></image>
+      </view>
+    </block>
+  </view>
+
+  <!-- 空状态 -->
+  <view class="empty" wx:if="{{validVouchers.length === 0 && expiredVouchers.length === 0}}">
+    <image src="/images/empty.png" mode="widthFix"></image>
+    <text>暂无优惠券</text>
+  </view>
+</view>

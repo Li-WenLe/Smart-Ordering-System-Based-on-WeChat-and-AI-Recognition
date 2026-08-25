@@ -1,0 +1,16 @@
+<view style="text-align: center;">
+  <text style="color: red; font-size: larger;">商品详情</text>
+</view>
+<view style="height: 30rpx;"></view>
+<view class="goods-box">
+ <block wx:for="{{goodsList}}">
+  <view>
+    <image class="goods-image" src="{{item.image}}" data-id="{{item.id}}"bindtap="toContentDetail" ></image>
+    <view style="font-weight: 800; font-size:36rpx;color: blueviolet;">{{item.title}}</view>
+    <view class="goods-bootom">
+    <view>{{item.name}}</view>
+    <view style="color: red; ">售价：¥{{item.price}}</view>
+   </view>
+  </view>
+ </block>
+</view>

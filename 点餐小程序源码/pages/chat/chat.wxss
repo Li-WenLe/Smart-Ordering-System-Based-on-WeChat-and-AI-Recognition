@@ -1,0 +1,105 @@
+.chat-container {
+  display: flex;
+  flex-direction: column;
+  height: 100vh;
+  background-color: #f5f7fa;
+}
+
+.status {
+  padding: 10px;
+  text-align: center;
+  background-color: #f0f0f0;
+  font-size: 14px;
+  color: #666;
+}
+
+.message-container {
+  flex: 1;
+  padding: 10px;
+  overflow-y: auto;
+  background-color: #e5e5e5;
+}
+
+.message {
+  margin-bottom: 15px;
+  max-width: 80%;
+  position: relative;
+}
+
+.message-content {
+  padding: 10px 15px;
+  border-radius: 18px;
+  font-size: 16px;
+  line-height: 1.4;
+  word-break: break-word;
+  box-shadow: 0 1px 2px rgba(0, 0, 0, 0.1);
+}
+
+.message-time {
+  font-size: 12px;
+  color: #666;
+  margin-top: 4px;
+}
+
+/* 自己发送的消息样式(右侧，绿色气泡) */
+.self-message {
+  margin-left: auto;
+}
+
+.self-message .message-content {
+  background-color: #dcf8c6; /* 绿色背景 */
+  border-bottom-right-radius: 5px;
+}
+
+.self-message .message-time {
+  text-align: right;
+  padding-right: 10px;
+}
+
+/* 接收的消息样式(左侧，白色气泡) */
+.other-message {
+  margin-right: auto;
+}
+
+.other-message .message-content {
+  background-color: white;
+  border-bottom-left-radius: 5px;
+}
+
+.other-message .message-time {
+  text-align: left;
+  padding-left: 10px;
+}
+
+.sender-name {
+  font-size: 14px;
+  color: #555;
+  margin-bottom: 3px;
+  padding-left: 10px;
+}
+
+.input-area {
+  display: flex;
+  padding: 15px;
+  background-color: white;
+  border-top: 1px solid #ddd;
+}
+
+.input-area input {
+  flex: 1;
+  padding: 12px 15px;
+  border: 1px solid #ddd;
+  border-radius: 20px;
+  outline: none;
+  font-size: 16px;
+}
+
+.input-area button {
+  width: 80px;
+  height: 45px;
+  margin-left: 10px;
+  border: none;
+  border-radius: 20px;
+  background-color: #4a6fa5;
+  color: white;
+}

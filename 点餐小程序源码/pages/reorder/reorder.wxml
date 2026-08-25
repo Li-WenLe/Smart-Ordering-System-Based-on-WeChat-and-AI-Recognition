@@ -1,0 +1,26 @@
+<input type="text"class="note" placeholder="请输入基本信息：姓名+联系方式"bindinput="getInformation"></input>
+<input type="text"class="note" placeholder="请输入备注"bindinput="getNote"></input>
+<view>
+  <block wx:for="{{reorderList}}" wx:key="index">
+    <view class="box">
+      <view><image src="{{item.cover}}" class="order-image"></image></view>
+      <view class="goods-right">
+        <view style="margin: 15rpx 15rpx;">{{item.title}}</view>
+        <view style="display: flex; flex-direction: row; justify-content: space-between;">
+          <view style="margin: 15rpx 15rpx; color: rgba(255, 0, 0, 0.938);">价格：¥{{item.price}}</view>
+          <view style="display: flex; flex-direction: row; align-items: center;">
+          <view>数量：</view>
+            <image style="width: 50rpx; height: 50rpx;" src="/images/减号.png" bindtap="reduce" data-index="{{index}}"></image>
+            <view style="margin-left: 10rpx; margin-right: 10rpx;">{{item.number}}</view>
+            <image style="width: 50rpx; height: 50rpx;" src="/images/加号.png" bindtap="add" data-index="{{index}}"></image>
+          </view>
+        </view>
+      </view>
+    </view>
+  </block>
+  <!-- 显示总价格 -->
+  <view class="footer">
+    <view class="total-price">总计：¥{{totalPrice}}</view>
+    <view class="total" bindtap="addOrderandpay">付款</view>
+  </view>
+</view>

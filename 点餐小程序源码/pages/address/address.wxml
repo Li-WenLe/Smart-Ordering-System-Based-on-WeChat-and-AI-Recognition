@@ -1,0 +1,80 @@
+<view class="container">
+  <!-- 联系人信息 -->
+  <view class="section">
+    <view class="section-title">联系人</view>
+    <input 
+      class="input" 
+      placeholder="请填写收货人的姓名" 
+      bindinput="onNameInput" 
+    />
+  </view>
+
+  <!-- 手机号 -->
+  <view class="section">
+    <view class="section-title">手机号</view>
+    <input 
+      class="input" 
+      type="number" 
+      placeholder="请填写收货人手机号码" 
+      bindinput="onPhoneInput" 
+    />
+  </view>
+
+  <view class="divider"></view>
+
+  <!-- 收货地址 -->
+  <view class="section">
+    <view class="section-title">收货地址</view>
+    <view class="address-selector">
+      <picker mode="region" bindchange="onRegionChange">
+        <input class="input" value="{{region}}" placeholder="请选择省/市/区" disabled />
+      </picker>
+    </view>
+    <input 
+      class="input" 
+      placeholder="详细地址（精确到门牌号）" 
+      bindinput="onDetailAddressInput" 
+    />
+  </view>
+
+  <view class="divider"></view>
+<!-- 是否设为默认地址 -->
+<view class="section">
+  <view class="section-title">设为默认地址</view>
+  <switch 
+    checked="{{isDefaultAddress}}" 
+    bindchange="onSwitchChange" 
+    color="#FF6146" 
+  />
+</view>
+<view class="divider"></view>
+  <!-- 标签 -->
+  <view class="section">
+    <view class="section-title">标签</view>
+    <view class="tag-options">
+      <view 
+        class="tag-option {{currentTag === 'company' ? 'active' : ''}}" 
+        bindtap="selectTag" 
+        data-tag="company"
+      >公司</view>
+      <view 
+        class="tag-option {{currentTag === 'home' ? 'active' : ''}}" 
+        bindtap="selectTag" 
+        data-tag="home"
+      >家</view>
+      <view 
+        class="tag-option {{currentTag === 'school' ? 'active' : ''}}" 
+        bindtap="selectTag" 
+        data-tag="school"
+      >学校</view>
+    </view>
+  </view>
+
+  <view class="divider"></view>
+
+  <!-- 按钮区域 -->
+  <view class="button-area">
+    <button class="save-btn" bindtap="saveAddress">保存地址</button>
+    <button class="cancel-btn" bindtap="cancel">取消</button>
+  </view>
+</view>

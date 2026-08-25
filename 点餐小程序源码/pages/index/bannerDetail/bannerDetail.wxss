@@ -1,0 +1,17 @@
+.page-container {
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+}
+.rich {
+  text-align: center;
+  margin: 0 20rpx;
+  padding: 10rpx;
+  color: #333;
+  font-size: 32rpx;
+}
+image {
+  margin: 20rpx 55rpx;
+  border-radius: 10rpx;
+  width: 80%;
+}

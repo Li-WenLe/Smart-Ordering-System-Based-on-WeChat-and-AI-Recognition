@@ -1,0 +1,5 @@
+<view class="page-container">
+  <view class="tity" style="color: red; text-align: center;font-weight: 1000; font-size: 44rpx;">{{banner.title}}</view>
+  <rich-text style="text-align: center; margin: 0 20rpx;" class="rich" nodes="{{banner.content}}"></rich-text>
+  <image src="{{banner.image}}" style="margin: 20rpx 55rpx;"></image>
+</view>

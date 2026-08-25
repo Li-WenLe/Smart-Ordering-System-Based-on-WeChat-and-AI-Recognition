@@ -1,0 +1,62 @@
+<view class="container">
+  <!-- 聊天区域 -->
+  <scroll-view class="chat-container" scroll-y scroll-with-animation scroll-top="{{scrollTop}}">
+    <block wx:for="{{chatHistory}}" wx:key="index">
+      <view class="message {{item.isUser ? 'user-message' : 'ai-message'}}">
+        <block wx:if="{{item.type === 'image'}}">
+          <image src="{{item.content}}" mode="aspectFit" style="max-width: 200px; max-height: 200px;"></image>
+        </block>
+        <block wx:else>
+          <text>{{item.content}}</text>
+        </block>
+      </view>
+    </block>
+    
+    <view wx:if="{{relatedQuestions.length > 0}}" class="related-questions">
+      <text class="related-title">相关问题：</text>
+      <block wx:for="{{relatedQuestions}}" wx:key="index">
+        <view class="question-item" bindtap="selectQuestion" data-question="{{item.question}}" data-answer="{{item.answer}}">
+          {{item.question}}
+        </view>
+      </block>
+    </view>
+    
+    <view wx:if="{{isLoading}}" class="loading">
+      <image src="/images/loading.gif" mode="aspectFit"></image>
+      <text>AI正在思考...</text>
+    </view>
+  </scroll-view>
+
+  <!-- 相机区域 -->
+  <view wx:if="{{cameraActive}}" class="camera-container">
+    <camera device-position="back" flash="off" binderror="error" style="width: 100%; height: 500px;"></camera>
+    <button class="take-photo-btn" bindtap="takePhoto" style="background-color: green;">拍照</button>
+    <button class="close-camera-btn" bindtap="toggleCamera">关闭相机</button>
+  </view>
+
+  <!-- 图片预览区域 -->
+  <view wx:if="{{showPreview}}" class="preview-container">
+    <image src="{{previewImage}}" mode="aspectFit" class="preview-image"></image>
+    <view class="preview-actions">
+      <button class="preview-btn cancel-btn" bindtap="cancelSendPhoto">重拍</button>
+      <button class="preview-btn confirm-btn" bindtap="confirmSendPhoto">发送</button>
+    </view>
+  </view>
+
+  <!-- 输入区域 -->
+  <view class="input-area">
+    <button class="file-btn" bindtap="chooseFile">
+      <image src="/images/加号1.png" class="file-icon"></image>
+    </button>
+    <button class="camera-btn" bindtap="toggleCamera">拍图识物</button>
+    <input 
+      class="input" 
+      placeholder="输入消息..." 
+      value="{{inputValue}}" 
+      bindinput="handleInput" 
+      bindconfirm="onConfirm"
+      confirm-type="send"
+    />
+    <button class="send-btn" bindtap="sendMessage">发送</button>
+  </view>
+</view>

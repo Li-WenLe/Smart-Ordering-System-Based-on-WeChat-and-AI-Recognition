@@ -1,0 +1,55 @@
+.mode{
+  margin: 20rpx 40rpx;
+  justify-content: space-between;
+  display: flex;
+  flex-direction: row;
+  align-items: center;
+}
+.button{
+  background-color: ghostwhite;
+  margin: 0 40rpx;
+  width: 150rpx;
+  height: 80rpx;
+  font-size: medium;
+}
+.title{
+  display: flex;
+  flex-direction: row;
+  align-items: center;
+  justify-content: space-between;
+}
+.tabbar{
+  width: 100%;
+  position:fixed;
+  bottom: 0;
+  left: 0;
+  height: 100rpx;
+  background-color: ghostwhite;
+  border-top:1rpx solid #f7f7ff ;
+  display: flex;
+  flex-direction: row;
+  justify-content: space-between;
+  align-items: center;
+}
+.cart-image{
+  width: 70rpx;
+  height: 70rpx;
+  margin-left: 40rpx;
+}
+.add-cart{
+  background-color: goldenrod;
+  padding: 20rpx 20rpx;
+  color: #f7f7ff;
+  margin-right: 15rpx;
+}
+.cart-num{
+  background-color: red;
+  border-radius: 50%;
+  width: 40rpx;
+  height: 40rpx;
+  position: absolute;
+  color: #f7f7ff;
+  left: 80rpx;
+  top:5rpx;
+  text-align: center;
+}

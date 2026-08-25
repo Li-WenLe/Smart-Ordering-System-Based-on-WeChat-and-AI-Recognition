@@ -1,0 +1,78 @@
+server:
+  port: 3000
+
+spring:
+  application:
+    name: wxprogrem
+  # MySQL
+  datasource:
+    driver-class-name: com.mysql.cj.jdbc.Driver
+    url: #jdbc:mysql://127.0.0.1:3306/shop?useSSL=false&serverTimezone=Asia/Shanghai&allowPublicKeyRetrieval=true
+    username: #root
+    password: #root             //配置自己的Mysql连接和数据库
+
+
+  # RabbitMQ
+  rabbitmq:
+    host: 127.0.0.1
+    port: 5672
+    username: #admin   // //改为自己的消息队列名和密码
+    password: #123456
+    listener:
+      simple:
+        acknowledge-mode: auto
+        startup-delay: 3000 # 延迟3秒启动消费者，给配置Bean创建队列留出时间
+
+
+
+  # AI 配置
+  ai:
+    zhipuai:
+      api-key: //改为自己的智谱密钥
+      base-url: https://open.bigmodel.cn/api/paas/v4
+      embedding:
+        options:
+          model: embedding-2
+      chat:
+        options:
+          model: GLM-4-Flash
+    deepseek:
+      base-url: https://api.deepseek.com
+      api-key: //改为自己的deepseek密钥
+      chat:
+        options:
+          model: deepseek-chat
+          temperature: 0.8
+
+  # 文件上传
+  servlet:
+    multipart:
+      enabled: true
+      max-file-size: 10MB
+      max-request-size: 100MB
+
+  # JSON 序列化
+  jackson:
+    default-property-inclusion: non_null
+
+
+  #Redis
+  data:
+    redis:
+      host: 127.0.0.1
+      port: 6379
+
+
+# MyBatis
+mybatis:
+  configuration:
+    map-underscore-to-camel-case: true
+
+# 阿里云 OSS
+sky:
+  alioss:
+    endpoint: oss-cn-beijing.aliyuncs.com
+    bucket-name: //此处改为自己的阿里云oss配置
+    access-key-id: //此处改为自己的阿里云oss配置id
+    access-key-secret: //此处改为自己的阿里云oss配置密钥
+#debug: true

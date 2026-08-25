@@ -1,0 +1,263 @@
+.type-box {
+  display: flex;
+  flex-direction: row;
+  height: 100vh;
+  background-color: #f9f9f9;
+}
+
+.type-left {
+  width: 230rpx;
+  background-color: #f5f5f5;
+  box-shadow: 2rpx 0 10rpx rgba(0, 0, 0, 0.05);
+}
+
+.type-left view {
+  text-align: center;
+  padding: 28rpx 0;
+  font-size: 28rpx;
+  color: #666;
+  border-left: 6rpx solid transparent;
+  transition: all 0.3s ease;
+}
+
+.type-left view:hover {
+  background-color: #f0f0f0;
+}
+
+.choose-type {
+  background-color: white;
+  font-weight: bold;
+}
+
+/* 商品样式 */
+.good-box {
+  display: flex;
+  flex-direction: row;
+  background: white;
+  margin: 20rpx;
+  padding: 20rpx;
+  border-radius: 16rpx;
+  box-shadow: 0 4rpx 12rpx rgba(0, 0, 0, 0.05);
+  transition: transform 0.2s ease;
+}
+
+.good-box:hover {
+  transform: translateY(-4rpx);
+  box-shadow: 0 6rpx 16rpx rgba(0, 0, 0, 0.1);
+}
+
+.type-good-image {
+  width: 160rpx;
+  height: 160rpx;
+  border-radius: 12rpx;
+  object-fit: cover;
+}
+
+.type-good-title {
+  font-size: 34rpx;
+  font-weight: bold;
+  color: #333;
+  margin-bottom: 10rpx;
+}
+
+.type-good-tage {
+  color: #999;
+  font-size: 26rpx;
+  line-height: 1.4;
+}
+
+/* 对话框样式 */
+.dialog-container {
+  position: fixed;
+  top: 0;
+  left: 0;
+  width: 100%;
+  height: 100%;
+  z-index: 999;
+  display: flex;
+  justify-content: center;
+  align-items: center;
+}
+
+.dialog-mask {
+  position: absolute;
+  top: 0;
+  left: 0;
+  width: 100%;
+  height: 100%;
+  background-color: rgba(0, 0, 0, 0.5);
+  backdrop-filter: blur(10rpx);
+}
+
+.dialog-content {
+  position: relative;
+  width: 80%;
+  max-width: 600rpx;
+  background-color: #fff;
+  border-radius: 24rpx;
+  overflow: hidden;
+  box-shadow: 0 10rpx 40rpx rgba(0, 0, 0, 0.2);
+  animation: fadeInUp 0.3s ease;
+}
+
+@keyframes fadeInUp {
+  from {
+    opacity: 0;
+    transform: translate(-50%, -40%);
+  }
+  to {
+    opacity: 1;
+    transform: translate(-50%, -50%);
+  }
+}
+
+.dialog-header {
+  display: flex;
+  justify-content: space-between;
+  align-items: center;
+  padding: 28rpx 32rpx;
+  border-bottom: 1rpx solid #f0f0f0;
+  background-color: #fafafa;
+}
+
+.dialog-title {
+  font-size: 34rpx;
+  font-weight: bold;
+  color: #333;
+}
+
+.dialog-close {
+  font-size: 36rpx;
+  color: #999;
+  padding: 10rpx;
+}
+
+.dialog-close:active {
+  color: #666;
+}
+
+.dialog-body {
+  max-height: 60vh;
+  overflow-y: auto;
+  padding: 0 32rpx;
+}
+
+.meal-info {
+  display: flex;
+  padding: 32rpx 0;
+  border-bottom: 1rpx dashed #eee;
+  align-items: center;
+}
+
+.meal-image {
+  width: 140rpx;
+  height: 140rpx;
+  border-radius: 12rpx;
+  object-fit: cover;
+}
+
+.meal-details {
+  flex: 1;
+  margin-left: 24rpx;
+}
+
+.meal-name {
+  font-size: 30rpx;
+  font-weight: bold;
+  color: #333;
+  margin-bottom: 12rpx;
+}
+
+.meal-price {
+  font-size: 28rpx;
+  color: #ff5a5f;
+  font-weight: bold;
+}
+
+.dishes-section {
+  padding: 28rpx 0;
+}
+
+.section-title {
+  font-size: 30rpx;
+  font-weight: bold;
+  color: #333;
+  margin-bottom: 24rpx;
+  position: relative;
+  padding-left: 20rpx;
+}
+
+.section-title::before {
+  content: "";
+  position: absolute;
+  left: 0;
+  top: 50%;
+  transform: translateY(-50%);
+  width: 8rpx;
+  height: 30rpx;
+  background-color: #ff5a5f;
+  border-radius: 4rpx;
+}
+
+.dish-item {
+  display: flex;
+  margin-bottom: 28rpx;
+  padding: 16rpx;
+  border-radius: 12rpx;
+  background-color: #fafafa;
+}
+
+.dish-image {
+  width: 120rpx;
+  height: 120rpx;
+  border-radius: 10rpx;
+  object-fit: cover;
+}
+
+.dish-info {
+  flex: 1;
+  margin-left: 24rpx;
+}
+
+.dish-name {
+  font-size: 28rpx;
+  color: #333;
+  margin-bottom: 8rpx;
+  font-weight: 500;
+}
+
+.dish-desc {
+  font-size: 24rpx;
+  color: #999;
+  margin-bottom: 8rpx;
+  line-height: 1.4;
+}
+
+.dish-quantity {
+  font-size: 26rpx;
+  color: #666;
+}
+
+.dialog-footer {
+  padding: 24rpx 32rpx;
+  background-color: #fafafa;
+}
+
+.confirm-btn {
+  width: 100%;
+  height: 88rpx;
+  line-height: 88rpx;
+  background: linear-gradient(135deg, #ff5a5f, #ff7b7f);
+  color: #fff;
+  font-size: 30rpx;
+  border-radius: 44rpx;
+  text-align: center;
+  font-weight: bold;
+  box-shadow: 0 4rpx 16rpx rgba(255, 90, 95, 0.3);
+  transition: all 0.2s ease;
+}
+
+.confirm-btn:active {
+  transform: scale(0.98);
+  opacity: 0.9;
+}

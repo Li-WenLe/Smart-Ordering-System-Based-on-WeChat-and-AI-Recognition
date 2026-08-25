@@ -1,0 +1,63 @@
+/* pages/taste-select/taste-select.wxss */
+
+
+.title {
+  font-size: 36rpx;
+  font-weight: bold;
+  margin: 30rpx 0 50rpx 20rpx;
+}
+
+/* 标签容器 - 横向排列允许换行 */
+
+
+/* 基础标签样式 - 扁椭圆形 */
+/* pages/taste-select/taste-select.wxss */
+.container {
+  padding: 20rpx;
+  height: auto; /* 关键点：让高度自适应 */
+}
+
+.tag-container {
+  display: flex;
+  flex-wrap: wrap;
+  gap: 20rpx;
+  align-items: flex-start; /* 避免标签拉伸 */
+  padding: 10rpx;
+}
+
+.tag {
+  padding: 12rpx 30rpx;
+  border-radius: 50rpx;
+  background-color: #f0f0f0;
+  color: #666;
+  font-size: 28rpx;
+  white-space: nowrap;
+  /* 可选：限制标签最大宽度 */
+  max-width: 200rpx;
+  overflow: hidden;
+  text-overflow: ellipsis;
+}
+
+/* 选中状态 */
+.tag.active {
+  background-color: #ff8c00;
+  color: white;
+  font-weight: bold;
+}
+
+/* 保存按钮 */
+.btn-save {
+  position: fixed;
+  bottom: 60rpx;
+  left: 50%;
+  transform: translateX(-50%);
+  width: 80%;
+  height: 80rpx;
+  line-height: 80rpx;
+  text-align: center;
+  background-color: #07c160;
+  color: white;
+  border-radius: 50rpx;
+  font-size: 32rpx;
+  box-shadow: 0 4rpx 12rpx rgba(7, 193, 96, 0.3);
+}

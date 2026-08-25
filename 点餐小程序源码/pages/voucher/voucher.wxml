@@ -1,0 +1,20 @@
+<view class="voucher-container">
+  <block wx:for="{{voucherInfo}}" wx:key="id">
+    <view class="voucher-item">
+      <image src="{{item.cover}}" mode="aspectFit"></image>
+      <view class="voucher-info">
+        <text class="voucher-title">{{item.title}}</text>
+        <text class="voucher-ruler">{{item.ruler}}</text>
+        <text class="voucher-remain">剩余数量: {{item.remain}}</text>
+        <text class="voucher-used-time">截至生效时间: {{item.usedTime}}</text>
+      </view>
+      <button 
+        class="grab-button {{(item.remain <= 0 || buttonDisabled[item.id]) ? 'disabled-button' : ''}}" 
+        bindtap="grabVoucher" 
+        data-id="{{item.id}}" 
+        disabled="{{item.remain <= 0 || buttonDisabled[item.id]}}">
+        {{item.remain <= 0 ? '已抢完' : (buttonDisabled[item.id] ? '抢购中...' : '抢购')}}
+      </button>
+    </view>
+  </block>
+</view>

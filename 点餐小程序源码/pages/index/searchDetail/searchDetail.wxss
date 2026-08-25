@@ -1,0 +1,41 @@
+.search-box{
+  display: flex;
+  flex-direction: row;
+  /*margin: 0 20rpx;*/
+  height: 100rpx;
+  justify-content: space-between;
+  /*padding: 0 20rpx;*/
+  align-items: center;
+  background-color: #f7f7f7;
+}
+.search-image{
+  width: 50rpx;
+  height: 50rpx;
+  margin-right: 25rpx;
+}
+.input-cell{
+  padding: 20rpx 20rpx;
+  width: 600rpx;
+  margin:20rpx 10rpx;
+  background-color: #ffff;
+}
+.search-box{
+  display: flex;
+  flex-direction: row;
+}
+.goods-image{
+  width:160rpx;
+  height:160rpx;
+  margin: 10rpx 0;
+}
+.searchgoods-box{
+  margin: 10rpx 10rpx;
+  display:flex;
+  flex-direction: row;
+  align-items: center;
+}
+.search-right{
+  margin: 10rpx 20rpx;
+  display: flex;
+  flex-direction:column;
+}
