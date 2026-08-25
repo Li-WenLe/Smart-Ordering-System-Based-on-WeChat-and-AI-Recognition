@@ -6,6 +6,8 @@ import com.wxprogrem.service.SickillVoucherService;
 import com.wxprogrem.service.VoucherService;
 import com.wxprogrem.service.VoucherUserService;
 import com.wxprogrem.utils.Result;
+import io.swagger.v3.oas.annotations.Operation;
+import io.swagger.v3.oas.annotations.tags.Tag;
 import lombok.extern.slf4j.Slf4j;
 import org.redisson.api.RedissonClient;
 import org.springframework.amqp.rabbit.core.RabbitTemplate;
@@ -24,6 +26,7 @@ import static com.wxprogrem.config.RabbitMqConfiguration.SICKILLVOUCH_EXCHANGE;
 @RequestMapping("/user/seckill")
 @Transactional
 @Slf4j
+@Tag(name = "用户端优惠券秒杀相关接口",description = "用户端优惠券秒杀相关api")
 public class SeckillVoucherController {
     @Autowired
     private StringRedisTemplate stringRedisTemplate;
@@ -40,6 +43,7 @@ public class SeckillVoucherController {
     @Autowired
     private RabbitTemplate rabbitTemplate;
 
+    @Operation(summary = "用户端优惠券秒杀",description = "用户端优惠券秒杀")
     @PostMapping("/seckill")
     public Result sickVoucher(@RequestBody Map<String, Integer> map) {
         int userId = map.get("userId");
