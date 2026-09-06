@@ -44,7 +44,6 @@ public interface OrderMapper {
     @Select("select status from `order` where order_id=#{orderId}")
     Integer findStatus(String orderId);
 
-    // OrderMapper.java
 
     /**
      * 批量查询订单状态
@@ -86,4 +85,8 @@ public interface OrderMapper {
 
     @Update("update `order` set status =#{status},update_time=#{updateTime} where order_id=#{orderId}")
     void updateStatusWithTime(String orderId, int status, LocalDateTime updateTime);
+
+    //根据订单ID修改订单状态
+    @Update("update `order` set status=#{status} where order_Id=#{orderId}")
+    void updateStatusByOrderId(Integer orderId, Integer status);
 }

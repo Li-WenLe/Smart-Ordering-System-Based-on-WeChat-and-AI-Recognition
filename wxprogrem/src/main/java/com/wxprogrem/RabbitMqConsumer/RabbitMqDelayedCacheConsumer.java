@@ -18,4 +18,6 @@ public class RabbitMqDelayedCacheConsumer {
         redisTemplate.delete(key);
         System.out.println("延时双删完成，清理redis脏缓存" + key);
     }
+
+
 }

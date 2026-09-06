@@ -23,6 +23,5 @@ public class RabbitMqCreateOrderDetailWithStockConsumer {
         orderService.addOrderDetailS(orderDetail);
         dishService.dishInventoryDeduct(orderDetail.getDishId(),orderDetail.getNumber());
         log.info("MQ落库成功");
-        //
     }
 }

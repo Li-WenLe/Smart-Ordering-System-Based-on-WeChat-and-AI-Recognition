@@ -198,4 +198,9 @@ public class OrderServiceImpl implements OrderService {
     public void addOrderDetailS(OrderDetail orderDetail) {
         orderDetailMapper.addorderdetails(orderDetail);
     }
+
+    @Override
+    public void updateStatusByOrderId(Integer orderId, Integer status) {
+        orderMapper.updateStatusByOrderId(orderId,status);
+    }
 }

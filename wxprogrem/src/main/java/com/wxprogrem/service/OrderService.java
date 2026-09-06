@@ -61,4 +61,6 @@ public interface OrderService {
     List<OrderWithTime> getAllOrdersWithTime(int userId);
 
     List<String> getOrderIdsByStatus(int userId, int i);
+
+    void updateStatusByOrderId(Integer orderId, Integer status);
 }

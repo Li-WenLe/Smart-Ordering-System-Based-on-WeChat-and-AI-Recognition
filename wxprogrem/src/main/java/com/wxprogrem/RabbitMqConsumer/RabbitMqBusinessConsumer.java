@@ -54,8 +54,6 @@ private RabbitTemplate rabbitTemplate;
 
 
 
-
-
     // Bean全部依赖注入完成后再执行初始化加载
     @PostConstruct
     public void initLoadDishType() {

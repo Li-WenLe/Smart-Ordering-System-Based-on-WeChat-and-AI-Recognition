@@ -24,8 +24,8 @@ public class WebMvcConfigure implements WebMvcConfigurer {
                         "/ai",
                         "/chat",
                         "/upload/**",
-                        "/user/voucher/**"
-
+                        "/user/voucher/**",
+                        "/error"
                 );
 
     }

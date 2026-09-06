@@ -12,6 +12,7 @@ import java.io.IOException;
 @Component
 public class JwtInterceptor implements HandlerInterceptor {
     public boolean preHandle(HttpServletRequest request, HttpServletResponse response, Object handler) throws Exception {
+        System.out.println("===== 进入拦截器，请求路径：" + request.getRequestURI() + " =====");
         // 处理 OPTIONS 请求，允许跨域预检请求通过
         if ("OPTIONS".equalsIgnoreCase(request.getMethod())) {
             return true;
@@ -32,6 +33,9 @@ public class JwtInterceptor implements HandlerInterceptor {
             return true;  // 不验证 token
         }
         if (url.startsWith("/user/voucher")) {
+            return true;
+        }
+        if (url.startsWith("/user/regist")) {
             return true;
         }
         String realToken = token.substring(7);

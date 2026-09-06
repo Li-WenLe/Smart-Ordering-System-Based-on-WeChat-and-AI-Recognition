@@ -50,6 +50,9 @@ public class OrderController {
     public Result addOrder(@RequestBody Order order) {
         log.info("订单插入--前端传递订单参数：order：{}", order);
         orderService.addOrder(order);
+        rabbitTemplate.convertAndSend(ORDER_EXCHANGE,ORDER_QUEUE, order);
+        log.info("消息已发送至交换器：{}，路由键：{}，内容：{}",
+                CREATORDERWITHSTOCK_BUSINESS_EXCHANGE, CREATORDERWITHSTOCK_BUSINESS_QUEUE,order);
         try {
             WebSocketServer.sendInfo("你有新的订单待处理");
         } catch (IOException e) {

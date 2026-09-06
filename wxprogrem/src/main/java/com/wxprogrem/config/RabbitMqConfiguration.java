@@ -57,6 +57,12 @@ public class RabbitMqConfiguration implements RabbitListenerConfigurer {
     //订单插入和库存扣减业务的队列
     public static final String CREATORDERWITHSTOCK_BUSINESS_QUEUE = "createOrderWithStock_business_queue";
 
+    //订单超时取消队列专属队列
+    public static final String ORDER_DLX_QUEUE="order_dlx_queue";
+
+    //订单超时取消队列专属路由键
+    public static final String ORDER_DLX_EXCHANGE="order_dlx_exchange";
+
     // 优惠券专用队列
     @Bean
     public Queue sickillvoucherQueue() {
@@ -68,6 +74,8 @@ public class RabbitMqConfiguration implements RabbitListenerConfigurer {
     public DirectExchange sickillvoucherExchange() {
         return new DirectExchange(SICKILLVOUCH_EXCHANGE);
     }
+
+
 
     /**
      * 优惠券队列绑定
@@ -85,6 +93,26 @@ public class RabbitMqConfiguration implements RabbitListenerConfigurer {
                 .bind(sickillvoucherQueue())
                 .to(sickillvoucherExchange())
                 .with(SICKILLVOUCHER_QUEUE);
+    }
+
+    @Bean
+    //订单模块死信队列
+    public Queue orderDlxQueue() {
+        return QueueBuilder.durable(ORDER_DLX_QUEUE).build();
+    }
+
+    //订单模块死信队列交换机
+    @Bean
+    public DirectExchange orderDlxExchange() {
+        return new DirectExchange(ORDER_DLX_EXCHANGE);
+    }
+
+    @Bean
+    public Binding orderDlxBinding() {
+        return BindingBuilder
+                .bind(orderDlxQueue())
+                .to(orderDlxExchange())
+                .with(ORDER_DLX_QUEUE);
     }
 
     // 死信队列
@@ -167,10 +195,30 @@ public class RabbitMqConfiguration implements RabbitListenerConfigurer {
                 .with(DELAYED_BUSINESS_QUEUE);
     }
 
+    //订单队列
     @Bean
     public Queue orderQueue() {
-        return new Queue(ORDER_QUEUE, true);
+        return QueueBuilder.durable(ORDER_QUEUE)
+                .withArgument("x-message-ttl", 5000)
+                .withArgument("x-dead-letter-exchange", ORDER_DLX_EXCHANGE) // 指定死信交换机
+                .withArgument("x-dead-letter-routing-key", ORDER_DLX_QUEUE) // 指定死信路由键
+                .build();
     }
+    //订单队列交换机
+    @Bean
+    public DirectExchange orderExchange() {
+        return new DirectExchange(ORDER_EXCHANGE);
+    }
+
+    //订单队列绑定规则
+    @Bean
+    public Binding orderBinding() {
+        return BindingBuilder
+                .bind(orderQueue())
+                .to(orderExchange())
+                .with(ORDER_QUEUE);
+    }
+
 
 
     /**
