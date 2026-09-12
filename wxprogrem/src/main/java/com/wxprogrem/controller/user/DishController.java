@@ -1,6 +1,9 @@
 package com.wxprogrem.controller.user;
 
 import cn.hutool.json.JSONUtil;
+import com.wxprogrem.ElasticSearch.ElasticSearchIndex.DishIndex;
+import com.wxprogrem.ElasticSearch.Repository.DishRepository;
+import com.wxprogrem.mapper.DishMapper;
 import com.wxprogrem.pojo.Dish;
 import com.wxprogrem.service.DishService;
 import com.wxprogrem.service.DishTypeService;
@@ -15,8 +18,10 @@ import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.data.redis.core.StringRedisTemplate;
 import org.springframework.web.bind.annotation.*;
 
+import java.util.Collections;
 import java.util.List;
 import java.util.Map;
+import java.util.stream.Collectors;
 
 import static com.wxprogrem.constants.Constants.*;
 
@@ -37,6 +42,10 @@ public class DishController {
     private RedissonClient redissonClient;
     @Autowired
     private RBloomFilter<String> bloomFilter;
+    @Autowired
+    private DishRepository dishRepository;
+    @Autowired
+    private DishMapper dishMapper;
 
 
     @Operation(summary="根据分类名获取对应分类下的所有商品信息",description = "根据分类名获取对应分类下的所有商品信息")
@@ -57,6 +66,8 @@ public class DishController {
         stringRedisTemplate.opsForValue().set(DISHTYPEID+dishTypeId, JSONUtil.toJsonStr(list));
         return Result.success(list);
     }
+
+
 
 
     @Operation(summary="根据菜品ID获取菜品信息",description = "根据菜品ID获取菜品信息")
@@ -119,6 +130,28 @@ public class DishController {
         log.info("redis存储商品分类信息");
         stringRedisTemplate.opsForValue().set(DISHID+dishId, JSONUtil.toJsonStr(list));
         return Result.success(list);
+    }
+
+
+    @Operation(summary="根据菜品名称模糊查询获取一类菜品相关信息",description = "根据菜品名称模糊查询获取一类菜品相关信息")
+    @PostMapping("/getdishbyesdishname")
+    public Result <List<Dish>> getDishByesDishname(@RequestBody Map<String,String> map){
+        log.info("根据菜品名称索引es获取菜品相关信息--小程序传递参数：dishName:{}",map.get("name"));
+        String name = map.get("name");
+        // 1. 从 ES 中模糊查询，获取匹配的 DishIndex 列表
+        List<DishIndex> dishIndexList = dishRepository.findByName(name);
+        // 2. 提取出所有的 ID
+        List<Integer> ids = dishIndexList.stream()
+                .map(dishIndex -> Integer.parseInt(dishIndex.getId())) // 把 String 转回 int
+                .collect(Collectors.toList());
+        //如果集合为空
+        if (ids.isEmpty()) {
+            log.info("匹配的 DishIndex 列表ID为空");
+            return Result.success(Collections.emptyList());
+        }
+        // 3. 根据 ID 去 MySQL 查完整的 Dish 数据
+        List<Dish> dishList = dishMapper.selectBatchIds(ids);
+        return Result.success(dishList);
     }
 
 

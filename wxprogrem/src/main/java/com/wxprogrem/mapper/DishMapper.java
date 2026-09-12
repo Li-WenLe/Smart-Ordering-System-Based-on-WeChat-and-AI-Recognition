@@ -49,4 +49,6 @@ public interface DishMapper {
     @Select("select inventory from dish where id=#{id}")
     int getInventoryByDishId(int id);
 
+    List<Dish>selectBatchIds(List<Integer>ids);
+
 }
